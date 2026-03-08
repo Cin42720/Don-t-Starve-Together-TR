@@ -1,19 +1,19 @@
-# Tools Duzeni
+# Tools Düzeni
 
-`tools` klasoru bes ana bolume ayrilmistir:
+`tools` klasörü beş ana bölüme ayrılmıştır:
 
 - `extract`
-  Oyundan veri cikaran scriptler
+  Oyundan veri çıkaran scriptler
 - `translate`
-  JSON verilerini ceviri ve kalite kontrol hattindan geciren scriptler
+  JSON verilerini çeviri ve kalite kontrol hattından geçiren scriptler
 - `generate`
-  Turkce JSON verisinden Lua cikti ureten scriptler
+  Türkçe JSON verisinden Lua çıktı üreten scriptler
 - `package`
-  `mod` icindeki ortak dosyalari `mod-client` ve `mod-server` paketlerine senkronlayan ve paket ozel dosyalari render eden araclar
+  `mod` içindeki ortak dosyaları `mod-client` ve `mod-server` paketlerine senkronlayan ve paket özel dosyaları render eden araçlar
 - `workshop`
-  Steam Workshop yukleme/guncelleme yardimci dosyalari
+  Steam Workshop yükleme/güncelleme yardımcı dosyaları
 
-## Ornek Komutlar
+## Örnek Komutlar
 
 ### Extract
 
@@ -44,8 +44,8 @@ python tools/generate/generate_skin_lua.py
 
 Not:
 
-- Generate scriptleri ortak ciktiyi once `mod` icine yazar.
-- Ardindan ortak dosyalari otomatik olarak `mod-client` ve `mod-server` klasorlerine senkronlar.
+- Generate scriptleri ortak çıktıyı önce `mod` içine yazar.
+- Ardından ortak dosyaları otomatik olarak `mod-client` ve `mod-server` klasörlerine senkronlar.
 
 ### Package
 
@@ -54,7 +54,7 @@ python tools/package/render_package_files.py
 python tools/package/sync_packages.py
 ```
 
-Canli DST mod klasorlerine de basmak icin:
+Canlı DST mod klasörlerine de basmak için:
 
 ```bash
 python tools/package/render_package_files.py --live
@@ -73,6 +73,6 @@ powershell -ExecutionPolicy Bypass -File .\tools\workshop\upload_workshop.ps1 -T
 
 Not:
 
-- Scriptler proje kokunden calistirilacak sekilde dusunulmustur.
-- Kaynak JSON veri `data/json`, oyundan cikarilan Lua kaynaklari `data/source_scripts` altinda tutulur.
-- Uretilen cikti `mod`, `mod-client` ve `mod-server` altinda yer alir.
+- Scriptler proje kökünden çalıştırılacak şekilde düşünülmüştür.
+- Kaynak JSON veri `data/json`, oyundan çıkarılan Lua kaynakları `data/source_scripts` altında tutulur.
+- Üretilen çıktı `mod`, `mod-client` ve `mod-server` altında yer alır.

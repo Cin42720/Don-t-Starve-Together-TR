@@ -1,19 +1,19 @@
 # Package Sync
 
-Bu klasor, ortak mod icerigini yayin paketlerine senkronlamak ve paket ozel dosyalari tek kaynaktan uretmek icin kullanilir.
+Bu klasör, ortak mod içeriğini yayın paketlerine senkronlamak ve paket özel dosyaları tek kaynaktan üretmek için kullanılır.
 
-## Mantik
+## Mantık
 
 - `mod` ortak kaynak paketidir
-- `mod-client` istemciye ozel yayin paketidir
-- `mod-server` sunucuya ozel yayin paketidir
+- `mod-client` istemciye özel yayın paketidir
+- `mod-server` sunucuya özel yayın paketidir
 
-Paylasilan klasorler:
+Paylaşılan klasörler:
 
 - `fonts`
 - `scripts`
 
-Bu klasorler `mod` icinden alinir ve diger paketlere kopyalanir.
+Bu klasörler `mod` içinden alınır ve diğer paketlere kopyalanır.
 
 ## Shared Sync
 
@@ -21,22 +21,22 @@ Bu klasorler `mod` icinden alinir ve diger paketlere kopyalanir.
 python tools/package/sync_packages.py
 ```
 
-Canli DST mod klasorlerine de basmak icin:
+Canlı DST mod klasörlerine de basmak için:
 
 ```bash
 python tools/package/sync_packages.py --live
 ```
 
-## Paket Ozel Dosyalar
+## Paket Özel Dosyalar
 
-`modmain.lua` ve `modinfo.lua` dosyalari asagidaki kaynaklardan uretilir:
+`modmain.lua` ve `modinfo.lua` dosyaları aşağıdaki kaynaklardan üretilir:
 
 - `package_config.json`
 - `templates/modmain.lua.tmpl`
 - `templates/modinfo.lua.tmpl`
 - `render_package_files.py`
 
-`package_config.json` icinde ortak varsayilanlar `common.modmain_defaults` ve `common.modinfo_defaults` altinda tutulur. Paketler sadece farkli alanlari override eder.
+`package_config.json` içinde ortak varsayılanlar `common.modmain_defaults` ve `common.modinfo_defaults` altında tutulur. Paketler sadece farklı alanları override eder.
 
 Render komutu:
 
@@ -44,7 +44,7 @@ Render komutu:
 python tools/package/render_package_files.py
 ```
 
-Canli DST mod klasorlerine de kopyalamak icin:
+Canlı DST mod klasörlerine de kopyalamak için:
 
 ```bash
 python tools/package/render_package_files.py --live

@@ -1,14 +1,14 @@
 # Notice
 
-Bu depodaki orijinal kod, araclar, belgeler ve repo icin uretilmis ozgun dosyalar `LICENSE` altinda MIT lisansi ile dagitilir.
+Bu depodaki orijinal kod, araçlar, belgeler ve repo için üretilmiş özgün dosyalar `LICENSE` altında MIT lisansı ile dağıtılır.
 
-Asagidaki icerikler bu lisansin disinda degerlendirilmelidir:
+Aşağıdaki içerikler bu lisansın dışında değerlendirilmelidir:
 
-- `Don't Starve Together` oyununa ait orijinal metinler, scriptler ve diger oyun icerikleri
-- oyundan cikarilmis referans dosyalari
-- oyunun adlari, markalari ve diger ticari isaretleri
-- varsa ucuncu taraf modlara veya harici iceriklere ait dosyalar
+- `Don't Starve Together` oyununa ait orijinal metinler, scriptler ve diğer oyun içerikleri
+- oyundan çıkarılmış referans dosyaları
+- oyunun adları, markaları ve diğer ticari işaretleri
+- varsa üçüncü taraf modlara veya harici içeriklere ait dosyalar
 
-`data/source_scripts` klasoru bu nedenle sadece yerel referans icin tutulur ve versiyonlanmaz.
+`data/source_scripts` klasörü bu nedenle sadece yerel referans için tutulur ve versiyonlanmaz.
 
-Bu proje, `Don't Starve Together` icin hazirlanan bir topluluk ceviri/mod arac setidir; oyunun orijinal hak sahipligi Klei Entertainment ve ilgili hak sahiplerinde kalir.
+Bu proje, `Don't Starve Together` için hazırlanan bir topluluk çeviri/mod araç setidir; oyunun orijinal hak sahipliği Klei Entertainment ve ilgili hak sahiplerinde kalır.
