@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from string import Template
 
@@ -33,7 +34,7 @@ def render_workshop_files() -> None:
     config = _load_config()
     template = _load_template()
     common = config["common"]
-    ascii_root = Path(common["ascii_output_root"])
+    ascii_root = Path(os.path.expandvars(common["ascii_output_root"])).expanduser()
 
     for target_name, target_cfg in config["targets"].items():
         base_values = {

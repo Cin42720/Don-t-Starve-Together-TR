@@ -1,71 +1,53 @@
 # Don't Starve Together Türkçe Çeviri Projesi
 
-Bu proje, `Don't Starve Together` için hazırlanan Türkçe çeviri paketlerini ve bunların üretim araçlarını içerir.
+English version: [README.en.md](./README.en.md)
 
-Proje üç ana mod paketi etrafında düzenlenmiştir:
+Bu repo, `Don't Starve Together` için hazırlanan Türkçe çeviri paketlerini, üretim araçlarını ve Workshop yayın akışını içerir.
 
-- `mod`: ortak kaynak paket
-- `mod-client`: istemci tarafı yayın paketi
-- `mod-server`: sunucu tarafı yayın paketi
+## Yapı
 
-## Hedef
-
-Projenin amacı:
-
-- ana oyun metinlerini Türkçeleştirmek
-- karakter konuşmalarını ve etkinlik diyaloglarını düzeltmek
-- istemciye özel UI, skill tree ve benzeri ekranları çevirmek
-- sunucu tarafında misafir oyunculara mümkün olduğunca fazla Türkçe metin yansıtmak
-
-## Klasör Yapısı
-
-- [`data`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/data)
-  - `data/json`: İngilizce/Türkçe JSON verileri ve sözlük
-  - `data/source_scripts`: oyundan çıkarılmış kaynak Lua dosyaları
-
-- [`tools`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/tools)
+- [`data`](./data)
+  - `data/json`: Çeviri verileri ve sözlük dosyaları
+  - `data/source_scripts`: Yerel referans için tutulan kaynak Lua dosyaları
+- [`tools`](./tools)
   - `extract`
   - `translate`
   - `generate`
   - `package`
   - `workshop`
+- [`mod`](./mod): Ortak kaynak paket
+- [`mod-client`](./mod-client): İstemci tarafı yayın paketi
+- [`mod-server`](./mod-server): Sunucu tarafı yayın paketi
+- [`DST_LOCALIZATION_RESEARCH.md`](./DST_LOCALIZATION_RESEARCH.md): Terim politikası ve lokalizasyon notları
+- [`NOTICE.md`](./NOTICE.md): Lisans kapsamı ve türetilmiş içerik notları
 
-- [`mod`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/mod)
-  Ortak kaynak paket. Paylaşılan `scripts` ve `fonts` içeriğinin tek kaynağıdır.
+## Amaç
 
-- [`mod-client`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/mod-client)
-  İstemci tarafı yayın paketi.
-
-- [`mod-server`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/mod-server)
-  Sunucu tarafı yayın paketi.
-
-- [`DST_LOCALIZATION_RESEARCH.md`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/DST_LOCALIZATION_RESEARCH.md)
-  Terim politikası, lore notları ve lokalizasyon kararları.
-- [`NOTICE.md`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/NOTICE.md)
-  Lisans kapsamı ve oyun-türevi içerik notları.
+- Ana oyun metinlerini Türkçeleştirmek
+- Karakter konuşmalarını ve etkinlik diyaloglarını düzeltmek
+- İstemciye özel UI, skill tree ve benzeri ekranları çevirmek
+- Sunucu tarafında misafir oyunculara mümkün olduğunca fazla Türkçe metin yansıtmak
 
 ## Tek Kaynak Mantığı
 
-Projede iki ana "tek kaynak" yapısı vardır:
+Projede iki ana tek kaynak yapısı vardır:
 
 1. Ortak oyun dosyaları
 - Ana kaynak: `mod`
 - Hedef paketler: `mod-client`, `mod-server`
-- Senkron araçları: `tools/package/*`
+- Araçlar: `tools/package/*`
 
 2. Workshop metadata
 - Ana kaynak: `tools/workshop/workshop_config.json`
-- Üretilen dosyalar:
+- Yerelde üretilen dosyalar:
   - `tools/workshop/workshop_client.vdf`
   - `tools/workshop/workshop_server.vdf`
-  - `C:/Users/husey/workshop_upload_dst/client_upload.vdf`
-  - `C:/Users/husey/workshop_upload_dst/server_upload.vdf`
+  - `%USERPROFILE%/workshop_upload_dst/client_upload.vdf`
+  - `%USERPROFILE%/workshop_upload_dst/server_upload.vdf`
 
-## Hangi Durumda Ne Yapılır
+## Tipik Akış
 
-### 1. Sadece çeviri metni değiştirdin
-
-JSON veya `scripts/languages/*.lua` tarafında bir değişiklikten sonra tipik akış:
+### 1. Çeviri verisi değiştiyse
 
 ```bash
 python tools/generate/generate_strings_lua.py
@@ -76,35 +58,27 @@ python tools/package/sync_packages.py --live
 ```
 
 Not:
-- Generate scriptleri ortak çıktıyı önce `mod` içine yazar.
-- Ardından `mod-client` ve `mod-server` paketlerini otomatik senkronlar.
+- Generate scriptleri önce ortak çıktıyı `mod` içine yazar.
+- Ardından ortak dosyaları `mod-client` ve `mod-server` klasörlerine senkronlar.
 - `--live`, yerel DST mod klasörlerine de kopyalar.
 
-### 2. Paket metadata'sı değişti
+### 2. Paket metadata'sı değiştiyse
 
 Örnek:
 - `modmain.lua`
 - `modinfo.lua`
-- package header / author / version / description
-
-Bu durumda:
+- sürüm, açıklama, yazar bilgisi
 
 ```bash
 python tools/package/render_package_files.py --live
 ```
-
-Bu komut:
-- `mod`, `mod-client`, `mod-server` altındaki `modmain.lua` ve `modinfo.lua` dosyalarını yeniden üretir
-- istenirse canlı DST mod klasörlerine de kopyalar
 
 Kaynak dosyalar:
 - `tools/package/package_config.json`
 - `tools/package/templates/modmain.lua.tmpl`
 - `tools/package/templates/modinfo.lua.tmpl`
 
-### 3. Workshop açıklama / başlık / publishedfileid / hedef yol değişti
-
-Bu durumda:
+### 3. Workshop metadata değiştiyse
 
 ```bash
 python tools/workshop/render_workshop_files.py
@@ -114,23 +88,21 @@ Kaynak dosyalar:
 - `tools/workshop/workshop_config.json`
 - `tools/workshop/templates/workshop_item.vdf.tmpl`
 
-### 4. Workshop'a yeni güncelleme basacaksın
-
-Normal akış:
+### 4. Workshop güncellemesi basılacaksa
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\workshop\upload_workshop.ps1 -Target client -SteamCmdPath "C:\Users\husey\Downloads\steamcmd\steamcmd.exe" -SteamUser "husoaga45"
+powershell -ExecutionPolicy Bypass -File .\tools\workshop\upload_workshop.ps1 -Target client -SteamCmdPath "<path-to-steamcmd.exe>" -SteamUser "<steam-username>"
 ```
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\workshop\upload_workshop.ps1 -Target server -SteamCmdPath "C:\Users\husey\Downloads\steamcmd\steamcmd.exe" -SteamUser "husoaga45"
+powershell -ExecutionPolicy Bypass -File .\tools\workshop\upload_workshop.ps1 -Target server -SteamCmdPath "<path-to-steamcmd.exe>" -SteamUser "<steam-username>"
 ```
 
 Not:
 - `upload_workshop.ps1`, çalışmadan önce `render_workshop_files.py` komutunu otomatik çağırır.
-- Yani VDF'leri elle güncel tutmak gerekmez.
+- VDF dosyaları bu yüzden elde güncellenmez.
 
-## Temel Üretim Akışı
+## Üretim Akışı
 
 ### 1. Kaynak veriyi çıkar
 
@@ -143,7 +115,7 @@ Not:
 
 ### 2. Çeviri verisini güncelle
 
-Kaynak JSON dosyaları `data/json` altında tutulur:
+Temel JSON dosyaları `data/json` altında tutulur:
 
 - `data/json/strings_tr.json`
 - `data/json/speech_tr.json`
@@ -152,20 +124,20 @@ Kaynak JSON dosyaları `data/json` altında tutulur:
 
 ### 3. Lua çıktısını üret
 
-Üretim scriptleri `tools/generate` altında durur:
+Üretim scriptleri `tools/generate` altındadır:
 
 - `tools/generate/generate_strings_lua.py`
 - `tools/generate/generate_speech_lua.py`
 - `tools/generate/generate_stageactor_lua.py`
 - `tools/generate/generate_skin_lua.py`
 
-### 4. Gerekirse paket özel dosyaları render et
+### 4. Paket dosyalarını render et
 
 ```bash
 python tools/package/render_package_files.py
 ```
 
-### 5. Gerekirse ortak dosyaları manuel senkronla
+### 5. Ortak dosyaları senkronla
 
 ```bash
 python tools/package/sync_packages.py
@@ -192,32 +164,30 @@ Sadece veri üretimi yetmediğinde şu katmanlar kullanılır:
 - `tr_pearl.lua`
 - `tr_yotb.lua`
 
-## Client ve Server Paketlerinin Rolü
+## Paket Rolleri
 
-### Client modu ne yapar
+### Client modu
 
-- ana menü ve frontend çevirileri
+- Ana menü ve frontend çevirileri
 - UI metinleri
-- skill tree açıklamaları
-- craft ve bazı client-cache düzeltmeleri
-- sahne performansları ve stageactor cache düzeltmeleri
-- konuşma balonu/font özel düzeltmeleri
+- Skill tree açıklamaları
+- Craft ve bazı client-cache düzeltmeleri
+- Sahne performansları ve stageactor cache düzeltmeleri
+- Konuşma balonu ve font özel düzeltmeleri
 
-### Server modu ne yapar
+### Server modu
 
-- paylaşılan çeviri verilerini sunucu tarafında yükler
-- ortak event/NPC/world metinlerini misafir oyunculara mümkün olduğunca Türkçe yansıtır
-- tam deneyim için client moduyla birlikte kullanılmalıdır
+- Paylaşılan çeviri verilerini sunucu tarafında yükler
+- Ortak event, NPC ve dünya metinlerini misafir oyunculara mümkün olduğunca Türkçe yansıtır
+- Tam deneyim için client moduyla birlikte kullanılmalıdır
 
 ## Workshop Bilgileri
 
-Workshop yardımcı dosyaları:
+Ana dosyalar:
 
-- [`tools/workshop/workshop_client.vdf`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/tools/workshop/workshop_client.vdf)
-- [`tools/workshop/workshop_server.vdf`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/tools/workshop/workshop_server.vdf)
-- [`tools/workshop/workshop_config.json`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/tools/workshop/workshop_config.json)
-- [`tools/workshop/render_workshop_files.py`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/tools/workshop/render_workshop_files.py)
-- [`tools/workshop/upload_workshop.ps1`](c:/Users/husey/OneDrive/Desktop/Test%20%C3%87eviri/tools/workshop/upload_workshop.ps1)
+- `tools/workshop/workshop_config.json`
+- `tools/workshop/render_workshop_files.py`
+- `tools/workshop/upload_workshop.ps1`
 
 Mevcut Workshop kimlikleri:
 
@@ -232,14 +202,13 @@ Yerel testte kullanılan canlı mod klasörleri:
 - `C:\Program Files (x86)\Steam\steamapps\common\Don't Starve Together\mods\turkish-translation-server`
 
 Not:
-
-- Proje içindeki kaynak klasörler ile canlı oyun klasörleri farklıdır.
+- Proje klasörleri ile canlı oyun klasörleri farklıdır.
 - Oyunda test etmeden önce güncel dosyaların canlı mod klasörlerine kopyalanmış olması gerekir.
 
 ## Bakım Notları
 
-- Geçici extract klasörleri proje kökünde tutulmamalı.
-- Eski `modicon_v2` gibi artık kullanılmayan ikon varyasyonları tekrar üretilmemeli.
-- Kullanılmayan uyumluluk dosyaları projede bırakılmamalı.
+- Geçici extract klasörleri proje kökünde tutulmamalıdır.
+- Artık kullanılmayan ikon varyasyonları projede bırakılmamalıdır.
+- Kullanılmayan uyumluluk dosyaları temizlenmelidir.
 - Yeni lokalizasyon kararları mümkünse önce `DST_LOCALIZATION_RESEARCH.md` içine not edilmelidir.
 - `data/source_scripts` yerel referans içindir; repoya dahil edilmez.

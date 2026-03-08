@@ -19,6 +19,10 @@ data/source_scripts/
 # but should not be versioned in the public repo.
 data/json/*_en.json
 
+# Generated Workshop VDF files are local build artifacts.
+tools/workshop/workshop_client.vdf
+tools/workshop/workshop_server.vdf
+
 # Old icon experiments
 **/modicon_v2.tex
 **/modicon_v2.xml

@@ -27,5 +27,10 @@ Bu komut iki çıktı üretir:
 
 ve SteamCMD için ASCII-safe kopyaları:
 
-- `C:/Users/husey/workshop_upload_dst/client_upload.vdf`
-- `C:/Users/husey/workshop_upload_dst/server_upload.vdf`
+- `%USERPROFILE%/workshop_upload_dst/client_upload.vdf`
+- `%USERPROFILE%/workshop_upload_dst/server_upload.vdf`
+
+Not:
+
+- `tools/workshop/workshop_*.vdf` dosyaları yerelde üretilen build artefaktlarıdır.
+- Public repoda takip edilmezler; gerektiğinde `render_workshop_files.py` ile yeniden üretilirler.

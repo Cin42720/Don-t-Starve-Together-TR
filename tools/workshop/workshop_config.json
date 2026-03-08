@@ -3,7 +3,7 @@
     "appid": "322330",
     "visibility": "2",
     "change_note": "Initial beta upload.",
-    "ascii_output_root": "C:/Users/husey/workshop_upload_dst"
+    "ascii_output_root": "%USERPROFILE%/workshop_upload_dst"
   },
   "targets": {
     "client": {
