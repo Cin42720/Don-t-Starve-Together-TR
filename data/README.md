@@ -12,15 +12,16 @@
 
 Burada bulunan başlıca dosyalar:
 
-- `strings_en.json`
 - `strings_tr.json`
-- `speech_en.json`
 - `speech_tr.json`
-- `stageactor_en.json`
 - `stageactor_tr.json`
-- `skin_en.json`
 - `skin_tr.json`
 - `glossary.json`
+
+Not:
+
+- `*_en.json` dosyaları araç zinciri için yerelde tutulabilir.
+- Telif riski nedeniyle public repoda varsayılan olarak versiyonlanmazlar.
 
 ## source_scripts
 
