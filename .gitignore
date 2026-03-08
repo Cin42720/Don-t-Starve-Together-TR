@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+
+# Temporary work dirs
+.tmp*/
+tmp_*/
+_tmp_*.png
+test_*.png
+
+# Generated scratch data
+tmp_scripts_extract/
+
+# Extracted game source scripts are kept locally for reference,
+# but should not be versioned.
+data/source_scripts/
+
+# Old icon experiments
+**/modicon_v2.tex
+**/modicon_v2.xml
+
+# OS / editor
+Thumbs.db
+Desktop.ini

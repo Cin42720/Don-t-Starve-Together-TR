@@ -1,0 +1,32 @@
+{
+  "common": {
+    "appid": "322330",
+    "visibility": "2",
+    "change_note": "Initial beta upload.",
+    "ascii_output_root": "C:/Users/husey/workshop_upload_dst"
+  },
+  "targets": {
+    "client": {
+      "project_output": "workshop_client.vdf",
+      "ascii_output": "client_upload.vdf",
+      "publishedfileid": "3680639043",
+      "title": "Türkçe Çeviri / Turkish Translation",
+      "description": "Versiyon Beta - Don't Starve Together için istemci tarafı Türkçe çeviri paketi. En iyi sonuç için server moduyla birlikte kullanın.",
+      "project_contentfolder": "mod-client",
+      "project_previewfile": "mod-client/preview.png",
+      "ascii_contentfolder": "C:/Program Files (x86)/Steam/steamapps/common/Don't Starve Together/mods/turkish-translation-client",
+      "ascii_previewfile": "C:/Program Files (x86)/Steam/steamapps/common/Don't Starve Together/mods/turkish-translation-client/preview.png"
+    },
+    "server": {
+      "project_output": "workshop_server.vdf",
+      "ascii_output": "server_upload.vdf",
+      "publishedfileid": "3680639406",
+      "title": "Türkçe Çeviri - Sunucu / Turkish Translation - Server",
+      "description": "Versiyon Beta - Don't Starve Together için sunucu tarafı Türkçe çeviri paketi. Ortak Türkçe metinleri oyunculara mümkün olduğunca yansıtır. En iyi sonuç için client moduyla birlikte kullanın.",
+      "project_contentfolder": "mod-server",
+      "project_previewfile": "mod-server/preview.png",
+      "ascii_contentfolder": "C:/Program Files (x86)/Steam/steamapps/common/Don't Starve Together/mods/turkish-translation-server",
+      "ascii_previewfile": "C:/Program Files (x86)/Steam/steamapps/common/Don't Starve Together/mods/turkish-translation-server/preview.png"
+    }
+  }
+}

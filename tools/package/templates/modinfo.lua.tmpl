@@ -1,0 +1,30 @@
+-- $header
+-- modinfo.lua
+
+name = "$name"
+author = "$author"
+version = "$version"
+
+local desc = {
+    en = [[$description_en]],
+    tr = [[$description_tr]],
+}
+
+description = desc[language] or desc.en
+
+api_version = $api_version
+
+dst_compatible = $dst_compatible
+dont_starve_compatible = $dont_starve_compatible
+reign_of_giants_compatible = $reign_of_giants_compatible
+shipwrecked_compatible = $shipwrecked_compatible
+
+client_only_mod = $client_only_mod
+all_clients_require_mod = $all_clients_require_mod
+
+$icon_block
+server_filter_tags = $server_filter_tags
+
+priority = $priority
+
+configuration_options = {}

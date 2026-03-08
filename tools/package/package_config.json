@@ -1,0 +1,110 @@
+{
+  "common": {
+    "early_imports": [
+      "scripts/compat_shb_guard.lua",
+      "scripts/compat_skilltree.lua",
+      "scripts/languages/tr_stageactor_map.lua",
+      "scripts/compat_stageactor_cache.lua"
+    ],
+    "frontend_imports": [
+      "scripts/languages/tr_ui.lua",
+      "scripts/languages/tr_yotb.lua",
+      "scripts/languages/tr_pearl.lua",
+      "scripts/languages/tr_dialogue_fixes.lua",
+      "scripts/compat_levels.lua",
+      "scripts/languages/tr_skin.lua"
+    ],
+    "frontend_hook_imports": [
+      "scripts/languages/tr_ui.lua",
+      "scripts/languages/tr_pearl.lua",
+      "scripts/languages/tr_dialogue_fixes.lua",
+      "scripts/compat_skilltree.lua",
+      "scripts/compat_levels.lua",
+      "scripts/languages/tr_skin.lua"
+    ],
+    "apply_imports": [
+      "scripts/languages/tr_speech.lua",
+      "scripts/languages/tr_speech_fixes.lua",
+      "scripts/languages/tr_speech_polish.lua",
+      "scripts/languages/tr_stageactor.lua",
+      "scripts/languages/tr_stageactor_map.lua",
+      "scripts/compat_stageactor_cache.lua",
+      "scripts/languages/tr_skin.lua",
+      "scripts/languages/tr_ui.lua",
+      "scripts/languages/tr_yotb.lua",
+      "scripts/languages/tr_pearl.lua",
+      "scripts/languages/tr_dialogue_fixes.lua",
+      "scripts/compat_skilltree.lua",
+      "scripts/compat_levels.lua"
+    ],
+    "modmain_defaults": {
+      "success_message": "Tum ceviriler uygulandi!",
+      "intro_message": "82.000+ metin Turkceye cevrildi!",
+      "early_comment": "",
+      "include_game_post_init": false,
+      "include_frontend_hook": false
+    },
+    "modinfo_defaults": {
+      "author": "Cin",
+      "version": "1.0.0 BETA",
+      "client_only_mod": false,
+      "all_clients_require_mod": false,
+      "with_icon": true,
+      "api_version": 10,
+      "dst_compatible": true,
+      "dont_starve_compatible": false,
+      "reign_of_giants_compatible": false,
+      "shipwrecked_compatible": false,
+      "server_filter_tags": [
+        "language",
+        "translation",
+        "turkish",
+        "türkçe"
+      ],
+      "priority": -100
+    }
+  },
+  "packages": {
+    "mod": {
+      "folder": "mod",
+      "modmain_header": "Don't Starve Together - Turkce Ceviri Modu",
+      "print_prefix": "Turkce Ceviri",
+      "success_message": "Ceviriler uygulandi! (UI + Speech + StageActor + Skin)",
+      "early_comment": "-- UI ve skin cevirilerini hemen yukle (ana menu, ayarlar ekrani icin)",
+      "include_game_post_init": true,
+      "include_frontend_hook": true,
+      "modinfo": {
+        "header": "Don't Starve Together - Türkçe Çeviri Modu",
+        "name": "Türkçe Çeviri / Turkish Translation",
+        "description_en": "Complete Turkish translation for Don't Starve Together.",
+        "description_tr": "Don't Starve Together için kapsamlı Türkçe çeviri.",
+        "with_icon": false
+      }
+    },
+    "client": {
+      "folder": "mod-client",
+      "modmain_header": "Don't Starve Together - Turkce Ceviri (Client)",
+      "print_prefix": "Turkce Ceviri - Client",
+      "early_comment": "-- UI ve skin cevirilerini hemen yukle (ana menu, giris ekrani)",
+      "include_game_post_init": true,
+      "modinfo": {
+        "header": "Don't Starve Together - Turkish Translation (Client)",
+        "name": "Türkçe Çeviri / Turkish Translation",
+        "description_en": "Versiyon Beta\nDon't Starve Together için istemci tarafı Türkçe çeviri paketi.\nEn iyi sonuç için server moduyla birlikte kullanın.\n",
+        "description_tr": "Versiyon Beta\nDon't Starve Together için istemci tarafı Türkçe çeviri paketi.\nEn iyi sonuç için server moduyla birlikte kullanın.\n",
+        "client_only_mod": true
+      }
+    },
+    "server": {
+      "folder": "mod-server",
+      "modmain_header": "Don't Starve Together - Turkce Ceviri (Server)",
+      "print_prefix": "Turkce Ceviri - Server",
+      "modinfo": {
+        "header": "Don't Starve Together - Turkish Translation (Server)",
+        "name": "Türkçe Çeviri - Sunucu / Turkish Translation - Server",
+        "description_en": "Versiyon Beta\nDon't Starve Together için sunucu tarafı Türkçe çeviri paketi.\nOrtak Türkçe metinleri oyunculara mümkün olduğunca yansıtır.\nEn iyi sonuç için client moduyla birlikte kullanın.\n",
+        "description_tr": "Versiyon Beta\nDon't Starve Together için sunucu tarafı Türkçe çeviri paketi.\nOrtak Türkçe metinleri oyunculara mümkün olduğunca yansıtır.\nEn iyi sonuç için client moduyla birlikte kullanın.\n"
+      }
+    }
+  }
+}

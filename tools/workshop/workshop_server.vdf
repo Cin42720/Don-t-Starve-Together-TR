@@ -1,0 +1,11 @@
+"workshopitem"
+{
+	"appid"			"322330"
+	"publishedfileid"	"3680639406"
+	"contentfolder"		"C:\Users\husey\OneDrive\Desktop\Test Çeviri\mod-server"
+	"previewfile"		"C:\Users\husey\OneDrive\Desktop\Test Çeviri\mod-server\preview.png"
+	"visibility"		"2"
+	"title"			"Türkçe Çeviri - Sunucu / Turkish Translation - Server"
+	"description"		"Versiyon Beta - Don't Starve Together için sunucu tarafı Türkçe çeviri paketi. Ortak Türkçe metinleri oyunculara mümkün olduğunca yansıtır. En iyi sonuç için client moduyla birlikte kullanın."
+	"changenote"		"Initial beta upload."
+}

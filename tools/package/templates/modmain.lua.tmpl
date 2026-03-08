@@ -1,0 +1,37 @@
+-- $modmain_header
+-- modmain.lua
+
+STRINGS = GLOBAL.STRINGS
+
+${early_imports}
+
+${early_comment_block}${frontend_imports}
+
+GLOBAL.package.loaded["map/customize"] = nil
+
+local function ApplyAllTranslations()
+    STRINGS = GLOBAL.STRINGS
+${apply_imports}
+    GLOBAL.package.loaded["map/customize"] = nil
+    print("[$print_prefix] $success_message")
+end
+
+AddSimPostInit(function()
+    ApplyAllTranslations()
+end)
+
+${game_post_init_block}AddPlayerPostInit(function(inst)
+    if inst == GLOBAL.ThePlayer then
+        inst:DoTaskInTime(0, function()
+            ApplyAllTranslations()
+        end)
+    end
+end)
+
+AddPrefabPostInit("world", function(inst)
+    inst:DoTaskInTime(0, function()
+        ApplyAllTranslations()
+    end)
+end)
+
+${frontend_hook_block}print("[$print_prefix] $intro_message")
